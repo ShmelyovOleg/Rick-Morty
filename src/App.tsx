@@ -1,30 +1,16 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Button } from "./components";
 import "./components/Button/button.scss";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
-  const some = () => {
-    console.log("click");
-  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <Button
-          type="button"
-          onClick={some}
-          action="delete"
-          children="Delete"
-        />
-        <Button type="button" onClick={some} action="edit" children="Edit" />
-        <Button type="button" onClick={some} action="save" children="Save" />
-        <Button
-          type="button"
-          onClick={some}
-          action="cancel"
-          children="Cancel"
-        />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
