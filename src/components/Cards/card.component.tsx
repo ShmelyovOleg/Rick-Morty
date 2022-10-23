@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { CardProps } from "./Card.types";
-import "./cards.scss";
+import "./Cards.scss";
 import classNames from "classnames";
 import { Button } from "../Button";
 
@@ -42,7 +42,7 @@ const Card: FC<CardProps> = ({
             type="button"
             onClick={() => onDelete(id)}
             action="delete"
-            children="Delete"
+            children="Delete character"
           />
         </div>
       </div>

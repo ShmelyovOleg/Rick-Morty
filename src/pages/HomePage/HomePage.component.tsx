@@ -1,12 +1,13 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { Character, getAllCharacters } from "../../api";
-import { Card } from "../../components";
+import { Info } from "../../api/types";
+import { Card, Pagination } from "../../components";
 import "./HomePage.scss";
 
 const HomePage: FC = () => {
   const [state, setState] = useState<{
     characters?: Array<Character>;
-    info?: any;
+    info?: Info;
     currentPage: number;
   }>({
     currentPage: 1,
@@ -35,15 +36,24 @@ const HomePage: FC = () => {
     console.log(state);
   }, [state]);
   return (
-    <div className="container">
-      <div className="cardsField">
-        {state?.characters?.map((character) => (
-          <Card
-            {...character}
-            onDelete={handleDeleteCharacter}
-            key={character.id}
+    <div>
+      <div className="container">
+        <div className="cardsField">
+          {state?.characters?.map((character) => (
+            <Card
+              {...character}
+              onDelete={handleDeleteCharacter}
+              key={character.id}
+            />
+          ))}
+        </div>
+        {state.info && (
+          <Pagination
+            onClick={fetchCharacters}
+            page={state.currentPage}
+            pages={state.info.pages}
           />
-        ))}
+        )}
       </div>
     </div>
   );

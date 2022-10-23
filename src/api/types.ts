@@ -23,4 +23,11 @@ interface Origin {
   url: string;
 }
 
-export type { Character };
+interface Info {
+  count: number;
+  next: string | null;
+  pages: number;
+  prev: string | null;
+}
+
+export type { Character, Info };

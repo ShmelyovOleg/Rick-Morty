@@ -2,11 +2,14 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   max-width: 300px;
-  margin: 0 10px 10px 20px;
+  margin: 15px;
   position: relative;
+  border-radius: 10px;
+  height: 500px;
 
   &_image {
     width: 100%;
+    border-radius: 10px;
   }
 
   &_name {
@@ -35,14 +38,17 @@
     &-alive {
       background-color: green;
       color: white;
+      font-weight: 700;
     }
     &-dead {
-      background-color: red;
+      background-color: darkred;
       color: white;
+      font-weight: 700;
     }
     &-unknown {
-      background-color: grey;
+      background-color: lightgrey;
       color: black;
+      font-weight: 700;
     }
   }
 
@@ -53,6 +59,7 @@
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    scale: 1.05;
   }
 }
 
