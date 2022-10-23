@@ -9,7 +9,10 @@ const request = async (url: string, options?: AxiosRequestConfig) => {
   }
 };
 
-const getAllCharacters = (pageNumber: number) =>
-  request(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`);
-
+const getAllCharacters = (pageNumber: number, query?: string) =>
+  request(
+    `https://rickandmortyapi.com/api/character/?page=${pageNumber}${
+      query ? `&name=${query}` : ""
+    }`
+  );
 export { getAllCharacters };

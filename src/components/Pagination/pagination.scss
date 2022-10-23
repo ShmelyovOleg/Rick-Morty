@@ -1,0 +1,40 @@
+.pagination {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 30px;
+    line-height: 30px;
+
+    &:first-child,
+    &:last-child {
+      font-weight: 900;
+      background-color: darkgreen;
+      color: white;
+      border-radius: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+li.activePage {
+  font-size: 35px;
+  border: 1px solid lightgray;
+  background-color: darkgreen;
+  color: white;
+  font-weight: 900;
+  border-radius: 10px;
+  padding: 15px;
+}

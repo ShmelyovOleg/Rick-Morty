@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { Character, getAllCharacters } from "../../api";
 import { Info } from "../../api/types";
-import { Card, Pagination } from "../../components";
+import { Card, Pagination, SearchCharacter } from "../../components";
 import "./HomePage.scss";
 
 const HomePage: FC = () => {
@@ -9,15 +9,24 @@ const HomePage: FC = () => {
     characters?: Array<Character>;
     info?: Info;
     currentPage: number;
+    query?: string;
   }>({
     currentPage: 1,
   });
 
-  const fetchCharacters = useCallback(() => {
-    getAllCharacters(state.currentPage).then(({ results, info }) =>
-      setState((prevState) => ({ ...prevState, characters: results, info }))
-    );
-  }, [state.currentPage]);
+  const fetchCharacters = useCallback(
+    (page: number) => {
+      getAllCharacters(page, state.query).then(({ results, info }) =>
+        setState((prevState) => ({
+          ...prevState,
+          characters: results,
+          info,
+          currenPage: page,
+        }))
+      );
+    },
+    [state.query]
+  );
 
   const handleDeleteCharacter = (characterId: number) => {
     setState((prevState) => ({
@@ -28,16 +37,25 @@ const HomePage: FC = () => {
     }));
   };
 
-  useEffect(() => {
-    fetchCharacters();
-  }, [fetchCharacters]);
+  const handleSearch = (query: string) =>
+    getAllCharacters(state.currentPage, query).then(({ results, info }) =>
+      setState((prevState) => ({
+        ...prevState,
+        characters: results,
+        info,
+        query,
+      }))
+    );
 
   useEffect(() => {
-    console.log(state);
-  }, [state]);
+    fetchCharacters(1);
+  }, [fetchCharacters]);
+
   return (
     <div>
       <div className="container">
+        <div className="logo"></div>
+        <SearchCharacter onSearch={handleSearch} />
         <div className="cardsField">
           {state?.characters?.map((character) => (
             <Card
