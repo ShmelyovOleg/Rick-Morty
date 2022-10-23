@@ -15,4 +15,8 @@ const getAllCharacters = (pageNumber: number, query?: string) =>
       query ? `&name=${query}` : ""
     }`
   );
-export { getAllCharacters };
+
+const getCharacterById = (id: number) =>
+  request(`https://rickandmortyapi.com/api/character/${id}`);
+
+export { getAllCharacters, getCharacterById };

@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
+
 import { Character, getAllCharacters } from "../../api";
 import { Info } from "../../api/types";
 import { Card, Pagination, SearchCharacter } from "../../components";
@@ -60,8 +61,8 @@ const HomePage: FC = () => {
           {state?.characters?.map((character) => (
             <Card
               {...character}
-              onDelete={handleDeleteCharacter}
               key={character.id}
+              onDelete={handleDeleteCharacter}
             />
           ))}
         </div>

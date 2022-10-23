@@ -3,6 +3,7 @@ import { CardProps } from "./Card.types";
 import "./Cards.scss";
 import classNames from "classnames";
 import { Button } from "../Button";
+import { Link } from "react-router-dom";
 
 const Card: FC<CardProps> = ({
   image,
@@ -16,35 +17,35 @@ const Card: FC<CardProps> = ({
 }) => {
   return (
     <div className="character">
-      <div
-        className={classNames(
-          "character_status",
-          status === "Alive" && "character_status-alive",
-          status === "Dead" && "character_status-dead",
-          status === "unknown" && "character_status-unknown"
-        )}
-      >
-        {status}
-      </div>
-      <img src={image} alt="Avatar" className="character_image" />
-      <div className="character_info">
-        <div className="character_name">
-          <h2>{name}</h2>
+      <Link className="link" to={`/character${id}`}>
+        <div
+          className={classNames(
+            "character_status",
+            status === "Alive" && "character_status-alive",
+            status === "Dead" && "character_status-dead",
+            status === "unknown" && "character_status-unknown"
+          )}
+        >
+          {status}
         </div>
-        <div className="character_species">
-          <h3>Species: {species}</h3>
+        <img src={image} alt="Avatar" className="character_image" />
+        <div className="character_info">
+          <div className="character_name">
+            <h2>{name}</h2>
+          </div>
+          <div className="character_species">
+            <h3>Species: {species}</h3>
+          </div>
+          <div className="character_location">
+            <h3>{location.name}</h3>
+          </div>
         </div>
-        <div className="character_location">
-          <h3>{location.name}</h3>
-        </div>
-        <div className="deleteCharacter">
-          <Button
-            type="button"
-            onClick={() => onDelete(id)}
-            action="delete"
-            children="Delete character"
-          />
-        </div>
+      </Link>
+
+      <div className="deleteCharacter">
+        <Button type="button" onClick={() => onDelete(id)} action="delete">
+          Delete character
+        </Button>
       </div>
     </div>
   );
