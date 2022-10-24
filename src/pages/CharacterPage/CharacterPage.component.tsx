@@ -1,10 +1,10 @@
 import { Form, Formik } from "formik";
 import React, { FC, useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { useParams } from "react-router";
 import { Character, getCharacterById } from "../../api";
 import { Button } from "../../components";
 import "./CharacterPage.scss";
-
 const CharacterPage: FC = () => {
   const [state, setState] = useState<{
     character?: Character;
@@ -14,6 +14,7 @@ const CharacterPage: FC = () => {
   });
 
   const params = useParams();
+  const navigate = useNavigate();
 
   const fetchCharacter = useCallback((id: number) => {
     getCharacterById(id).then((res) =>
@@ -183,6 +184,9 @@ const CharacterPage: FC = () => {
                     Edit
                   </Button>
                 )}
+                <button className="backButton" onClick={() => navigate("/")}>
+                  Back
+                </button>
               </div>
             </Form>
           )}
