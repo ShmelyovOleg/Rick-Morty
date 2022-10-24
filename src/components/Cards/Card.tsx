@@ -2,8 +2,8 @@ import { FC } from "react";
 import { CardProps } from "./Card.types";
 import "./Cards.scss";
 import classNames from "classnames";
-import { Button } from "../Button";
 import { Link } from "react-router-dom";
+import { Button } from "../Button";
 
 const Card: FC<CardProps> = ({
   image,

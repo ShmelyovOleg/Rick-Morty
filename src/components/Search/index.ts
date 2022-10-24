@@ -1,1 +1,1 @@
-export { SearchCharacter } from "./search.component";
+export { SearchCharacter } from "./Search";
