@@ -97,3 +97,11 @@
   background-color: #dddddd;
   color: darkred;
 }
+
+.link {
+  text-decoration: unset;
+  color: #222222;
+  &:visited {
+    color: #222222;
+  }
+}

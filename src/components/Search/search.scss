@@ -8,10 +8,26 @@
   padding: 12px 20px 12px 40px;
   -webkit-transition: width 0.5s ease-out;
   transition: width 0.5s ease-out;
+
+  @media (max-width: 567px) {
+    width: 400px;
+  }
+
+  @media (max-width: 436px) {
+    width: 300px;
+  }
 }
 
 #animated input[type="text"]:focus {
   width: 600px;
+
+  @media (max-width: 567px) {
+    width: 500px;
+  }
+
+  @media (max-width: 436px) {
+    width: 350px;
+  }
 }
 
 #animated i {
