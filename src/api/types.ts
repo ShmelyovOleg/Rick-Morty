@@ -1,6 +1,6 @@
 interface Character {
-  created: string;
-  episode: Array<string>;
+  created?: string;
+  episode?: Array<string>;
   gender: string;
   id: number;
   image: string;
@@ -9,8 +9,8 @@ interface Character {
   origin: Origin;
   species: string;
   status: string;
-  type: string;
-  url: string;
+  type?: string;
+  url?: string;
 }
 
 interface Location {
