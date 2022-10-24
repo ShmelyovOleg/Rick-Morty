@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import "./search.scss";
-import { SearchProps } from "./search.types";
+import "./Search.scss";
+import { SearchProps } from "./Search.types";
 
 const SearchCharacter: FC<SearchProps> = ({ onSearch }) => {
   return (
