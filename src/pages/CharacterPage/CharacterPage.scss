@@ -1,0 +1,62 @@
+.person {
+  display: flex;
+  width: 300px;
+  //   height: 300px;
+  border: 1px solid black;
+  position: relative;
+  flex-direction: column;
+  margin: 0 auto;
+
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  transition: 0.3s;
+
+  &_input {
+    margin-left: 5px;
+  }
+
+  &_info {
+    margin-bottom: 50px;
+    &_part {
+      padding-left: 20px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    &_input {
+      max-width: 300px;
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &_photo img {
+    border-radius: 20px;
+  }
+
+  &_name {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-weight: 900;
+
+    &_input {
+      max-width: 300px;
+      margin-left: 5px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.editButton button {
+  width: 280px;
+  height: 30px;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.buttonGroup {
+  display: flex;
+}

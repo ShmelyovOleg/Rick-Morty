@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CharacterPage } from "./pages";
+import { HomePage } from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/character:id" element={<CharacterPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
